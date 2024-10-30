@@ -3,18 +3,50 @@ import { FaSearch } from "react-icons/fa";
 import { RiMessage3Line } from "react-icons/ri";
 import { GrAnnounce } from "react-icons/gr";
 import { RxAvatar } from "react-icons/rx";
+import { InputAdornment, TextField } from '@mui/material';
 
 const Navbar = () => {
   return (
-    <div className='flex items-center justify-between p-4 border-b'>
+    <div className='flex items-center justify-between p-4 border-b h-[50px]'>
       {/* search Bar  */}
-      <div className='md:flex'>
-        <div className='border border-gray-50-2 flex bg-white p-1 rounded-md'>
-          <span className="flex items-center me-1">
-            <FaSearch className="text-gray-200" />
-          </span>
-          <input type="text" placeholder="Search..." className='p-1' style={{border: "white"}} />
-        </div>
+      <div className='w-50'>
+        <TextField
+          id="outlined-start-adornment"
+          placeholder="Search..."
+          variant="outlined"
+          sx={{
+            width: '100%',
+            '& .MuiOutlinedInput-root': {
+              padding: 0,
+              height: '35px', // Fixed height for consistency
+              boxSizing: 'border-box', // Ensures padding doesn't affect size
+              '& fieldset': {
+                borderColor: '#c0c0c0', // Default border color
+              },
+              '&:hover fieldset': {
+                borderColor: 'darkorange', // Border color on hover
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: '#ea580c', // Border color on focus
+              },
+            },
+            '& .MuiInputAdornment-root': {
+              color: 'gray',
+              paddingLeft: '8px', // Adjusts spacing of the icon
+            },
+            '& input': {
+              padding: '5px',
+            },
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <FaSearch />
+              </InputAdornment>
+            ),
+          }}
+        />
+
        
       </div>
       {/* icons & User  */}

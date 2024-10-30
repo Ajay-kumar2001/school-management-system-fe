@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 body {
   margin: 0;
   overflow: hidden;
@@ -15,10 +14,9 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.textColor{
+.textColor {
   color: #ea580c;
 }
