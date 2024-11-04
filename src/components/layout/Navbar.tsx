@@ -62,7 +62,7 @@ const Navbar = () => {
             <span className='text-small leading-3 font-medium'>Kalyan</span>
             <span className='text-[12px] text-gray-500 text-right mt-1'>Admin</span>
           </div>
-          <span className='ps-1 h-[32px] w-[32px]'><RxAvatar className='h-[35px] w-[35px] '/></span>
+          <span className='ps-1 h-[32px] w-[32px]'><RxAvatar className='h-[35px] w-[35px]  hover:text-orange-600 '/></span>
         </div>  
       </div>
     </div>

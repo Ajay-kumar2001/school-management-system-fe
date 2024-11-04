@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import { Link, Outlet } from 'react-router-dom'; // Import Link component
 import { GiSpellBook } from "react-icons/gi";
 import Sidebar from './Sidebar';
+import TeacherInfo from '../teacher/TeacherInfo';
 
 const AdminLayout = () => {
   return (
@@ -18,6 +19,7 @@ const AdminLayout = () => {
       </div>
       <div className="w-[85%] md:w-[92%] lg:w-[84%]  xl:w-[86%] ">
         <Navbar />
+        <TeacherInfo/>
         <Outlet  />
       </div>
     </div>
