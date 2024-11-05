@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SideBarMenu from '../../common/sideBarMenu';
 import { GoHome } from "react-icons/go";
 import { GiTeacher } from "react-icons/gi";
@@ -13,7 +13,9 @@ import { GrAnnounce } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineSetting } from "react-icons/ai";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 const Sidebar = () => {
+  const [activeItem, setActiveItem] = useState('Home');
   const sideBarMenuItems = [
     { icon: GoHome, headline: "Home" },
     { icon: GiTeacher, headline: "Teacher" },
@@ -29,15 +31,31 @@ const Sidebar = () => {
     {icon:null, headline:"OTHERS"},
     {icon: CgProfile, headline:"Profile"},
     {icon: AiOutlineSetting, headline:"Settings"},
-    {icon: RiLogoutCircleRLine,headline:"Logout"}
+    // {icon: RiLogoutCircleRLine,headline:"Logout"}
   ];
 
   return (
-    <div className='h-full flex flex-col justify-around pl-4'>
-      {sideBarMenuItems.map((item, index) => (
-        <SideBarMenu key={index} icons={item.icon} headline={item.headline} />
-      ))}
-       
+    <div className='flex flex-col ' style={{height: "92%"}}>
+      <div className='flex-1 flex-col pl-4'>
+        {sideBarMenuItems.map((item, index) => (
+          <SideBarMenu
+            key={index}
+            headline={item.headline}
+            Icon={item.icon}
+            isActive={activeItem === item.headline}
+            setActive={setActiveItem} />
+        ))}
+     </div>
+      <div className='flex border-t'>
+        <div
+          className={`flex flex-row items-center py-1 pl-4 ${activeItem == "Logout" ? 'textColor font-semibold' : ''}`}
+          onClick={() => setActiveItem("Logout")} // Only set active if clickable
+        >  <Link to={"Logout"} className="flex flex-row items-center">
+            <div className="pr-3">{<RiLogoutCircleRLine />}</div>
+            {"Logout"}
+          </Link>
+        </div>        
+       </div>
     </div>
   );
 };
